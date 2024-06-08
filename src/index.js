@@ -1,9 +1,7 @@
 import * as React from "react";
+import Index from "./Components/Main";
 import * as ReactDOM from "react-dom/client";
-import {
-  createBrowserRouter,
-  RouterProvider,
-} from "react-router-dom";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import "./index.css";
 
 const router = createBrowserRouter([
@@ -13,7 +11,11 @@ const router = createBrowserRouter([
   },
   {
     path: "/main",
-    element: <div>Helworld!</div>,
+    element: (
+      <div>
+        <Index />
+      </div>
+    ),
   },
 ]);
 
