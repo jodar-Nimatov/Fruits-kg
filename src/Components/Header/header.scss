@@ -1,0 +1,16 @@
+.header {
+  &__inner {
+    max-width: 1200px;
+    height: 60px;
+    background-color: aqua;
+    display: flex;
+    justify-content: space-between;
+    .header-img > img {
+      width: 82px;
+      height: 60px;
+    }
+    .socal-media {
+        
+    }
+  }
+}
