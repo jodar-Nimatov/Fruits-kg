@@ -1,4 +1,19 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
 .container {
     max-width: 1200px;
     margin: 0 auto;
+}
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background-image: url('./assets/images/background.jpg'); /* Correct path */
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
 }
