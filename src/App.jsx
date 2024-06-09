@@ -8,9 +8,6 @@ function App() {
   return (
     <Router>
       <div>
-        <nav>
-          
-        </nav>
         <Routes>
           <Route exact path="/" element={<Main />} />
           <Route path="/menu" element={<Menu />} />
