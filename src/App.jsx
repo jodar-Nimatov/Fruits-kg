@@ -7,15 +7,10 @@ import "./App.scss";
 function App() {
   return (
     <Router>
-      <div>
-        <nav>
-          
-        </nav>
         <Routes>
           <Route exact path="/" element={<Main />} />
           <Route path="/Menu" element={<Menu />} />
         </Routes>
-      </div>
     </Router>
   );
 }

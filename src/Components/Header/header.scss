@@ -1,9 +1,12 @@
 .header {
-  margin-top: 50px;
+  margin-top: 30px;
   display: flex;
   justify-content: center;
+  width: 100%;
   &__inner {
-    width: 1200px;
+    width: 100%;
+    max-width: 1200px;
+    min-width: 320px;
     height: 60px;
     display: flex;
     justify-content: space-between;
@@ -12,7 +15,9 @@
       height: 60px;
     }
     .socal-media {
-        
+      width: 152px;
+      display: flex;
+      justify-content: space-between;
     }
   }
 }
