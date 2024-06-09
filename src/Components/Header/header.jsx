@@ -9,7 +9,12 @@ const header = () => {
       <div className="container">
         <div className="header__inner">
           <div className="header-img">
-            <Link to="/"><img src={logoImage} alt="Description" /></Link>
+            <Link to="/">
+              <img 
+              src={logoImage} 
+              alt="Description" 
+              />
+            </Link>
           </div>
           <div className="socal-media">
             <a href="//instagram.com">
