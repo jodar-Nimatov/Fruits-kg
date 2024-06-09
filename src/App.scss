@@ -1,11 +1,23 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
 *{
-    margin: 0px;
-    padding: 0px;
+    margin: 0;
+    padding: 0;
     box-sizing: border-box;
-    font-family: "Montserrat", sans-serif;
 }
+
 
 .container {
     max-width: 1200px;
+    height: 60px;
     margin: 0 auto;
+}
+
+body {
+  margin: 0;
+  font-family: Montserrat, sans-serif;
+  background-image: url('./assets/images/background.jpg'); /* Correct path */
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
 }

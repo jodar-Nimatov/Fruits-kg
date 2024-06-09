@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import './MenuHeader.scss'
-import Logo from '../../Assets/Images/apple.png'
+import Logo from '../../assets/icons/logo.gif'
 
 const MenuHeader = () => {
 
