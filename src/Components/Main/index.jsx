@@ -6,6 +6,8 @@ import "./main.scss"
 
 const index = () => {
   return (
+    <>
+    <div className="main-back">
     <div className="main-page">
       <div className="container">
         <Header />
@@ -19,6 +21,8 @@ const index = () => {
         <div className="main-right"></div>
       </div>
     </div>
+    </div>
+    </>
   );
 };
 
