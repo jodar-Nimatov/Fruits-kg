@@ -1,9 +1,11 @@
+@import url("https://fonts.googleapis.com/css2?family=Lobster&display=swap");
 
 .main-page {
-  background-image: url('../../assets/images/background.png');
+  background-image: url("../../assets/images/background.png");
   background-size: cover;
   background-repeat: no-repeat;
-  height: 1160px;
+  background-position: center;
+  height: 100vh;
   @media (max-width: 700px) {
     height: 1200px;
   }
@@ -17,5 +19,46 @@
   .main-logo {
     width: 100px;
     height: 100px;
+  }
+
+  .main-text > h1 {
+    font-family: "Lobster", cursive;
+    color: white;
+    width: 497px;
+    height: 101px;
+    font-size: 24px;
+    font-weight: 400;
+    line-height: 33.6px;
+    letter-spacing: 0.02em;
+    text-align: center;
+  }
+  .block-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .main-button {
+    & > a > button {
+      margin-top: 150px;
+      width: 200px;
+      height: 60px;
+      gap: 8px;
+      border-radius: 10px;
+      font-family: Lobster;
+      font-size: 33px;
+      border: none;
+    }
+    a {
+      color: #000;
+      text-decoration-line: none;
+    }
+    & > a:hover {
+      button {
+        cursor: pointer;
+        background-color: rgb(167, 167, 167);
+      }
+    }
   }
 }
