@@ -10,9 +10,11 @@
     height: 60px;
     display: flex;
     justify-content: space-between;
-    .header-img > img {
-      width: 82px;
-      height: 60px;
+    .header-img {
+      img {
+        width: 82px;
+        height: 60px;
+      }
     }
     .socal-media {
       width: 152px;

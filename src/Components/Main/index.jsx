@@ -23,6 +23,12 @@ const index = () => {
                   приготовленных с любовью и заботой о вашем здоровье!
                 </h1>
               </div>
+              <div className="main-address">
+                <h3>
+                 Адрес:Кафе Рохат — восточная кухня. ‌ Котельники ‌ 2-ой Покровский
+                  проезд дом 8-а
+                </h3>
+              </div>
               <div className="main-button">
                 <Link to="/menu">
                   <button>Каталог </button>

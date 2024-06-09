@@ -1,6 +1,7 @@
 import WhatsApp from "../../assets/icons/whatsapp.svg";
 import "./header.scss";
 import logoImage from "../../assets/icons/logo.gif";
+import { Link } from "react-router-dom";
 
 const header = () => {
   return (
@@ -8,7 +9,7 @@ const header = () => {
       <div className="container">
         <div className="header__inner">
           <div className="header-img">
-            <img src={logoImage} alt="Description" />
+            <Link to="/"><img src={logoImage} alt="Description" /></Link>
           </div>
           <div className="socal-media">
             <a href="//instagram.com">
