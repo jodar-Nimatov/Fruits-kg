@@ -1,20 +1,19 @@
-import React from 'react'
-import CardImage from '../../assets/images/Rectangle 1.png'
-import './ItemCard.scss'
+import React from 'react';
+import './ItemCard.scss';
 
-const ItemCard = () => {
+const ItemCard = ({ id, title, img, price }) => {
 	return (
-		<div className='Card'>
+		<div className='Card' key={id}>
 			<div className='Card_inner'>
 				<section>
-					<img src={CardImage} alt="Image" />
+					<img src={img} alt="Image" />
 				</section>
 				<section>
 					<p>
-						Lorem impsum
+						{title}
 					</p>
 					<h2>
-						346 com
+						{price} com
 					</h2>
 				</section>
 			</div>

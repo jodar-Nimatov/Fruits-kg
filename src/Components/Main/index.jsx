@@ -4,10 +4,10 @@ import { Link } from "react-router-dom";
 import Mainlogo from "../../assets/icons/mainlogo.svg";
 import "./main.scss";
 
-const index = () => {
+const Index = () => {
   return (
     <>
-      <div className="main-back">
+      <div className='main-back'>
         <div className="main-page">
           <div className="container">
             <Header />
@@ -25,7 +25,7 @@ const index = () => {
               </div>
               <div className="main-address">
                 <h3>
-                 Адрес:Кафе Рохат — восточная кухня. ‌ Котельники ‌ 2-ой Покровский
+                  Адрес:Кафе Рохат — восточная кухня. ‌ Котельники ‌ 2-ой Покровский
                   проезд дом 8-а
                 </h3>
               </div>
@@ -42,4 +42,4 @@ const index = () => {
   );
 };
 
-export default index;
+export default Index;

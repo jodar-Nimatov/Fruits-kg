@@ -5,12 +5,13 @@ import Main from "./Components/Main";
 import "./App.scss";
 
 function App() {
+
   return (
     <Router>
-        <Routes>
-          <Route exact path="/" element={<Main />} />
-          <Route path="/Menu" element={<Menu />} />
-        </Routes>
+      <Routes>
+        <Route exact path="/" element={<Main />} />
+        <Route path="/Menu" element={<Menu />} />
+      </Routes>
     </Router>
   );
 }
