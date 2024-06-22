@@ -35,5 +35,24 @@
              }
             }
         }
+        .cart-button{
+            background: black;
+            border: none;
+            position: relative;
+            .cart-items-count{
+                border-radius: 50%;
+                background-color: red;
+                color: white;
+                width: 15px;
+                height: 16px;
+                font-size: 11px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                position: absolute;
+                left: auto;
+                right: auto;
+            }
+        }
     }
 }
