@@ -27,7 +27,7 @@
                 border-bottom: 2px solid #D2D2C6;
                 border-radius: 4px;
                 cursor: pointer;
-                &:hover{
+                &:hover{ 
                     border-bottom: 2px solid #13b62f;
                     transition: 1s;
                 }
@@ -35,7 +35,7 @@
             }
         }
         .cart-button{
-            background: black;
+            background: transparent;
             border: none;
             position: relative;
             .cart-items-count{
@@ -49,8 +49,9 @@
                 align-items: center;
                 justify-content: center;
                 position: absolute;
-                left: auto;
-                right: auto;
+                left: 50%;
+                top: -6px;
+                transform: translateX(-50%);
             }
         }
     }
