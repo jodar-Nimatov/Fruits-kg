@@ -24,7 +24,7 @@ const Menu = () => {
     content = (
       <ul>
         {products.map((product) => (
-          <ItemCard id={product.id} price={product.price} title={product.title} img={product.image}/>        
+          <ItemCard key={product.id} id={product.id} price={product.price} title={product.title} img={product.image}/>        
           ))}
       </ul>
     );
