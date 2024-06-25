@@ -1,27 +1,28 @@
-.Card{
-    width: 285px;
-    height: 462px;
-    margin-bottom: 20px;
-    &_inner{
-        display: flex;
-        flex-direction: column;
-        gap: 24px;
-        & section{
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-            & img{
-                cursor: pointer;
-            }
-            & p{
-                color: white;
-            }
-            & h2{
-                color: green;
-                font-size: 28px;
-                line-height: 34.13px;
-                font-weight: 600;
-            }
-        }
+.Card {
+  width: 285px;
+  height: 462px;
+  margin-bottom: 20px;
+  &_inner {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    & img {
+      width: 299px;
+      cursor: pointer;
     }
+    & p {
+      color: white;
+    }
+    & h2 {
+      color: green;
+      font-size: 28px;
+      line-height: 34.13px;
+      font-weight: 600;
+    }
+  }
 }
+
+  
+
+
+
