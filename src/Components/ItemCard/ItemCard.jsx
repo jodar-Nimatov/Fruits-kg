@@ -12,7 +12,7 @@ const ItemCard = ({id, title, img, price }) => {
     return (
         <div className='Card' key={id} onClick={handleCardClick}>
             <div className='Card_inner'>
-                <section>
+                <section className='section1'>
                     <img className='card-image' src={img} alt="Image" />
                 </section>
                 <section>
