@@ -1,0 +1,48 @@
+.BasketItem {
+    width: 951px;
+    height: 108px;
+    border-bottom: 2px solid #38A24A;
+    margin-bottom: 30px;
+    &-inner{
+        display: flex;
+        justify-content: space-between;
+        & section{
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            & img{
+                width: 81px;
+                height: 72px;
+                border-radius: 4px;
+            }
+            & h3{
+                color: white;
+            }
+            & h4{
+                color: white;
+            }
+            & button{
+                width: 35px;
+                height: 31px;
+                border-radius: 4px;
+                color: #D2D2C6;
+                background-color: #13da3480;
+                border: none;
+                font-size: 22px;
+                font-weight: 600;
+                cursor: pointer;
+            }
+        }
+        & div{
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            & p{
+                color: white;
+                font-size: 26px;
+                line-height: 31.69px;
+                font-weight: 600;
+            }
+        }
+    }
+}
