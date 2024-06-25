@@ -5,8 +5,6 @@ import ItemCard from '../ItemCard/ItemCard'
 import { useDispatch, useSelector } from 'react-redux'
 import { fetchProducts } from '../../features/productsSlice'
 
-
-
 const Menu = () => {
   const dispatch = useDispatch();
   const status = useSelector((state) => state.products.status);
@@ -26,8 +24,8 @@ const Menu = () => {
     content = (
       <ul>
         {products.map((product) => (
-          <ItemCard id={product.id} price={product.price} title={product.title} img={product.image}/>
-        ))}
+          <ItemCard id={product.id} price={product.price} title={product.title} img={product.image}/>        
+          ))}
       </ul>
     );
   } else if (status === 'failed') {
