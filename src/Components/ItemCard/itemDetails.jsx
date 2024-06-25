@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import {
@@ -9,8 +9,11 @@ import {
 } from "../../features/productSlice";
 import "./itemDetails.scss";
 import MenuHeader from "../MenuHeader/MenuHeader";
+import ModalBasket from "../ModalBasket/ModalBasket";
 
 const ItemDetail = () => {
+
+  const [active, setActive] = useState(false)
   const { id } = useParams();
   const dispatch = useDispatch();
   const product = useSelector(selectProduct);
@@ -34,6 +37,12 @@ const ItemDetail = () => {
   }
   return (
     <div className="Page">
+      <div>
+        <ModalBasket 
+        active={active}
+        setActive={setActive}
+        />
+      </div>
       <div className="Page_inner">
         <MenuHeader />
         <div className="block">
@@ -49,7 +58,11 @@ const ItemDetail = () => {
           </div>
         </div>
         <div className="basket">
-          <button className="basket_button">Добавить в корзину</button>
+          <button 
+          className="basket_button" 
+          onClick={() => setActive(true)}
+          >Добавить в корзину
+          </button>
         </div>
       </div>
     </div>

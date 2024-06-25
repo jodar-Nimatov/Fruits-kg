@@ -11,7 +11,7 @@
     max-width: 980px;
     margin: 0 auto;
     .block {
-      margin-top: 40px;
+      margin-top: 20px;
       display: flex;
       img {
         display: block;
@@ -68,7 +68,7 @@
       }
     }
     .basket {
-      margin-left: 300px;
+      margin: auto;
       .basket_button {
         width: 350px;
         height: 61px;
@@ -82,6 +82,7 @@
         font-weight: 600;
         line-height: 29.26px;
         text-align: center;
+        cursor: pointer;
       }
     }
   }
