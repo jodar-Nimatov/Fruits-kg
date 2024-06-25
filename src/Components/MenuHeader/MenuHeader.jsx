@@ -1,15 +1,9 @@
-import React, { useState } from 'react'
 import './MenuHeader.scss'
 import Logo from '../../assets/icons/logo.gif'
 import carticon from '../../assets/icons/cart.svg'
 import { Link } from 'react-router-dom'
 
 const MenuHeader = () => {
-
-    const [categs, setCategs] = useState(1)
-
-    const categories = ['Все', 'Фрукты', 'Овощи']
-
 
     return (
         <div className='MenuHeader'>

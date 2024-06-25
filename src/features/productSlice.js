@@ -1,17 +1,9 @@
-// src/features/products/productsSlice.js
+// src/features/productSlice.js
+
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
+import { fetchProducts } from './productsSlice';
 
-// Async thunk для получения всех продуктов
-export const fetchProducts = createAsyncThunk(
-  'products/fetchProducts',
-  async () => {
-    const response = await fetch('https://fakestoreapi.com/products');
-    const data = await response.json();
-    return data;
-  }
-);
-
-// Async thunk для получения информации о конкретном товаре
+// Async thunk для получения продукта по ID
 export const fetchProductById = createAsyncThunk(
   'products/fetchProductById',
   async (productId) => {
@@ -21,12 +13,13 @@ export const fetchProductById = createAsyncThunk(
   }
 );
 
-const productsSlice = createSlice({
-  name: 'products',
+const productSlice = createSlice({
+  name: 'product',
   initialState: {
     items: [],
     status: 'idle',
     error: null,
+    product: null, // Добавляем поле для одного продукта
   },
   reducers: {},
   extraReducers: (builder) => {
@@ -47,9 +40,7 @@ const productsSlice = createSlice({
       })
       .addCase(fetchProductById.fulfilled, (state, action) => {
         state.status = 'succeeded';
-        // Добавляем информацию о конкретном товаре в items, если это нужно
-        // Ваша логика может отличаться, в зависимости от того, как вы храните данные
-        state.items.push(action.payload);
+        state.product = action.payload; // Записываем полученный продукт в состояние
       })
       .addCase(fetchProductById.rejected, (state, action) => {
         state.status = 'failed';
@@ -58,4 +49,8 @@ const productsSlice = createSlice({
   },
 });
 
-export default productsSlice.reducer;
+export const selectProduct = (state) => state.product.product; // Селектор для получения продукта
+export const selectProductLoading = (state) => state.products.status === 'loading'; // Селектор для состояния загрузки
+export const selectProductError = (state) => state.products.error; // Селектор для ошибки загрузки
+
+export default productSlice.reducer;
