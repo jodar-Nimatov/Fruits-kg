@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import './Menu.scss'
 import MenuHeader from '../MenuHeader/MenuHeader'
 import ItemCard from '../ItemCard/ItemCard'
@@ -10,6 +10,12 @@ const Menu = () => {
   const status = useSelector((state) => state.products.status);
   const products = useSelector((state) => state.products.items);
   const error = useSelector((state) => state.products.error);
+  
+  const [categs, setCategs] = useState(1)
+
+  const categories = ['Все', 'Фрукты', 'Овощи']
+
+
   useEffect(() => {
     if (status === 'idle') {
       dispatch(fetchProducts());
@@ -37,6 +43,15 @@ const Menu = () => {
         <div className='Menu_inner'>
           <div className='container'>
             <MenuHeader />
+            <ul className='MenuHeader_inner_bellow_list'>
+                    {
+                        categories.map((item) => (
+                            <li className='MenuHeader_inner_bellow_list_item'>
+                                {item}
+                            </li>
+                        ))
+                    }
+                </ul>
             <div className='Menu_inner_row'>
               {content}
             </div>
