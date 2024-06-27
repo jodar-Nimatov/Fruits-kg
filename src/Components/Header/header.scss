@@ -6,7 +6,6 @@
   &__inner {
     width: 100%;
     max-width: 1200px;
-    min-width: 320px;
     height: 60px;
     display: flex;
     justify-content: space-between;
@@ -20,6 +19,7 @@
       width: 152px;
       display: flex;
       justify-content: space-between;
+      align-items: center;
     }
   }
 }

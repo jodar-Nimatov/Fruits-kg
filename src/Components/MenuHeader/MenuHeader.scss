@@ -11,13 +11,14 @@
                 max-height: 60px;
             }
         }
-        &_bellow{
-            &_list{ 
-             margin-top: 20px;
-             list-style: none;   
-             display: flex;
-             gap: 20px;
-             &_item{
+        &_bellow {
+            &_list {
+              margin: 20px auto 0;
+              justify-content: center;
+              list-style: none;   
+              display: flex;
+              gap: 20px;
+              &_item{
                 color: whitesmoke;
                 font-size: 18px;
                 width: 108px;

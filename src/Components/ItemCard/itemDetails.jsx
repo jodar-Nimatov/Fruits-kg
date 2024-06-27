@@ -34,7 +34,7 @@ const ItemDetail = () => {
   }
   return (
     <div className="Page">
-      <div className="Page_inner">
+      <div className="Page_inner container">
         <MenuHeader />
         <div className="block">
           <img src={product.image} />
