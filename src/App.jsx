@@ -5,6 +5,8 @@ import Main from "./Components/Main";
 import "./App.scss";
 import ItemDetail from "./Components/ItemCard/itemDetails";
 import Basket from "./Components/Basket/Basket";
+import Checkout from "./Components/CheckoutPage/Checkout";
+
 
 function App() {
 
@@ -13,8 +15,9 @@ function App() {
       <Routes>
         <Route exact path="/" element={<Main />} />
         <Route path="/Menu" element={<Menu />} />
-        <Route path="/item/:id" element={<ItemDetail/>}/>
+        <Route path="/item/:id" element={<ItemDetail />}/>
         <Route path="/Basket" element={<Basket />}/>
+        <Route path="/Checkout" element={<Checkout />}/>
       </Routes>
     </Router>
   );

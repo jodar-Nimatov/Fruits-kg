@@ -9,6 +9,7 @@ const Basket = () => {
     const navigate = useNavigate()
   return (
     <div className='Basket'>
+        <div className='container'>
         <div className="Basket-header">
             <div className="Basket-header-inner">
                 <section>
@@ -34,6 +35,22 @@ const Basket = () => {
                 <BasketItem/>
                 <BasketItem/>
             </div>
+        </div>
+        <div className='Basket-checkout'>
+            <section className='Basket-checkout-totalPrice'>
+                <h3>
+                    Итого
+                </h3>
+                <p>
+                    10 522.00 com
+                </p>
+            </section>
+            <section>
+            <button className='Basket-checkout-btn' onClick={() => navigate('/Checkout')}>
+                    Оформить заказ
+                </button>
+            </section>
+        </div>
         </div>
     </div>
   )
