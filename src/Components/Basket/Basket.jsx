@@ -1,6 +1,6 @@
 import React from 'react'
 import './Basket.scss'
-import Logo from '../../assets/icons/logo.gif'
+import Logo from '../../assets/icons/logo.png'
 import BasketItem from '../BasketItem/BasketItem'
 import { useNavigate } from 'react-router-dom'
 
@@ -31,9 +31,7 @@ const Basket = () => {
                 <BasketItem/>
                 <BasketItem/>
                 <BasketItem/>
-                <BasketItem/>
-                <BasketItem/>
-                <BasketItem/>
+               
             </div>
         </div>
         <div className='Basket-checkout'>

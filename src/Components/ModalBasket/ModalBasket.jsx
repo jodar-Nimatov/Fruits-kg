@@ -3,7 +3,8 @@ import './ModalBasket.scss'
 import { useNavigate } from 'react-router-dom'
 
 const ModalBasket = ({ active, setActive }) => {
-    const navigate = useNavigate()
+  const navigate = useNavigate();
+
   return (
     <div className='Modal' style={active ? {display: 'block'} : {display: 'none'}}>
         <div className="Modal-inner">

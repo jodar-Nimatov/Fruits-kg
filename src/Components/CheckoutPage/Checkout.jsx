@@ -1,5 +1,5 @@
 import React from 'react'
-import Logo from '../../assets/icons/logo.gif'
+import Logo from '../../assets/icons/logo.png'
 import './Checkout.scss'
 import { useNavigate } from 'react-router-dom'
 
