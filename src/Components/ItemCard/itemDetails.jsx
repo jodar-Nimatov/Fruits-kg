@@ -47,7 +47,7 @@ const ItemDetail = () => {
         <MenuHeader />
         <div className="block">
           <div className="img">
-            <img src={product.image} />
+            <img src={product.image} alt="item image" />
           </div>
           <div className="Card_text">
             <div className="q1">
