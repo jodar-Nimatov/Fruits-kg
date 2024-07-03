@@ -10,6 +10,7 @@ import {
 import "./itemDetails.scss";
 import MenuHeader from "../MenuHeader/MenuHeader";
 import ModalBasket from "../ModalBasket/ModalBasket";
+import { Swipers } from "./swiperr";
 
 const ItemDetail = () => {
   const [active, setActive] = useState(false);
@@ -47,7 +48,7 @@ const ItemDetail = () => {
         <MenuHeader />
         <div className="block">
           <div className="img">
-            <img src={product.image} alt="item image" />
+          <Swipers image={product.image}/>
           </div>
           <div className="Card_text">
             <div className="q1">
