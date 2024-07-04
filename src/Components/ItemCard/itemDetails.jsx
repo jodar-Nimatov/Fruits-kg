@@ -38,37 +38,32 @@ const ItemDetail = () => {
   return (
     <div className="Page">
       <div className="Page_inner container">
-      <div>
-        <ModalBasket 
-        active={active}
-        setActive={setActive}
-        />
-      </div>
-      <div className="Page_inner">
-        <MenuHeader />
-        <div className="block">
-          <div className="img">
-          <Swipers image={product.image}/>
-          </div>
-          <div className="Card_text">
-            <div className="q1">
-              <h2>{product.category}</h2>
-              <p>{product.description}</p>
+        <div>
+          <ModalBasket active={active} setActive={setActive} />
+        </div>
+        <div className="Page_inner">
+          <MenuHeader />
+          <div className="block">
+            <div className="img">
+              <Swipers image={product.image} />
             </div>
-            <div className="q2 text_price">
-              <h1>Цена: </h1> <h3> {product.price} ⃀</h3>
+            <div className="Card_text">
+              <div className="q1">
+                <h2>{product.category}</h2>
+                <p>{product.description}</p>
+              </div>
+              <div className="q2 text_price">
+                <h1>Цена: </h1> <h3> {product.price} ⃀</h3>
+              </div>
             </div>
           </div>
-        </div>
-        <div className="basket">
-          <button 
-            className="basket_button"
-            onClick={() => setActive(true)}
-          >
-            Добавить в корзину</button>
+          <div className="basket">
+            <button className="basket_button" onClick={() => setActive(true)}>
+              Добавить в корзину
+            </button>
+          </div>
         </div>
       </div>
-    </div>
     </div>
   );
 };

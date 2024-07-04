@@ -2,7 +2,7 @@ import { useNavigate } from 'react-router-dom';
 import './ItemCard.scss';
 import React from 'react';
 
-const ItemCard = ({id, title, img, price }) => { 	
+const ItemCard = ({id, title, img, price}) => { 	
     const navigate = useNavigate();
 
     const handleCardClick = () => {

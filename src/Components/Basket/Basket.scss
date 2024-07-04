@@ -1,98 +1,110 @@
 .Basket {
-    background-color: #0A0A08;
-    width: 100%;
-    height: 100%;
+  background-color: #0a0a08;
+  width: 100%;
+  height: 100%;
 
-    &-header {
-        width: 1200px;
-        height: 60px;
-        margin: auto;
-
-        &-inner {
-            padding-top: 30px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        & section {
-            & img {
-                width: 82px;
-                scale: 1.5;
-                cursor: pointer;
-            }
-
-            & span {
-                & h2 {
-                    font-family: Montserrat;
-                    color: white;
-                    font-size: 15px;
-                    font-weight: 600;
-                    line-height: 21.94px;
-                    border-bottom: 2px solid #D2D2C6;
-                    border-radius: 2px;
-                    padding-bottom: 4px;
-                    cursor: pointer;
-
-                    &:hover {
-                        border-bottom: 2px solid #13b62f;
-                        transition: 1s;
-                    }
-                }
-            }
-        }
-    }
+  &-header {
+    width: 1200px;
+    height: 60px;
+    margin: auto;
 
     &-inner {
-        padding: 150px;
+      padding-top: 30px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
     }
 
-    &-checkout {
-        display: flex;
-        align-items: center;
-        flex-direction: column;
-        gap: 100px;
-        padding: 0 150px;
+    & section {
+      & img {
+        width: 82px;
+        scale: 1.5;
+        cursor: pointer;
+      }
 
-        &-totalPrice {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            width: 951px;
-            height: 68px;
-            border-bottom: 2px solid #38A24A;
-            padding: 16px;
-            margin: 0 auto;
+      & span {
+        & h2 {
+          font-family: Montserrat;
+          color: white;
+          font-size: 15px;
+          font-weight: 600;
+          line-height: 21.94px;
+          border-bottom: 2px solid #d2d2c6;
+          border-radius: 2px;
+          padding-bottom: 4px;
+          cursor: pointer;
 
-            & h3 {
-                color: white;
-                font-size: 22px;
-                font-weight: 600;
-            }
-
-            & p {
-                color: white;
-                font-size: 26px;
-                font-weight: 600;
-            }
+          &:hover {
+            border-bottom: 2px solid #13b62f;
+            transition: 1s;
+          }
         }
-
-        &-btn {
-            width: 324px;
-            height: 61px;
-            border-radius: 4px;
-            padding: 16px 56px;
-            background-color: #38A24A;
-            font-size: 24px;
-            font-weight: 600;
-            margin-bottom: 50px;
-            cursor: pointer;
-            border: none;
-
-            &:hover {
-                color: whitesmoke;
-                transition: .3s;
-            }
-        }
+      }
     }
+  }
+
+  &-inner {
+    padding: 150px;
+  }
+
+  &-checkout {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    gap: 100px;
+    padding: 0 150px;
+
+    &-totalPrice {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 951px;
+      height: 68px;
+      border-bottom: 2px solid #38a24a;
+      padding: 16px;
+      margin: 0 auto;
+
+      & h3 {
+        color: white;
+        font-size: 22px;
+        font-weight: 600;
+      }
+
+      & p {
+        color: white;
+        font-size: 26px;
+        font-weight: 600;
+      }
+    }
+
+    &-btn {
+      width: 324px;
+      height: 61px;
+      border-radius: 4px;
+      padding: 16px 56px;
+      background-color: #38a24a;
+      font-size: 24px;
+      font-weight: 600;
+      margin-bottom: 50px;
+      cursor: pointer;
+      border: none;
+
+      &:hover {
+        color: whitesmoke;
+        transition: 0.3s;
+      }
+    }
+  }
+  .delivery {
+    label {
+      font-size: 20px;
+      font-family: 'Montserrat', sans-serif;
+      color: #d2d2c6;
+    }
+    input {
+      cursor: pointer;
+      width: 40px;
+      height: 15px;
+    }
+  }
 }
