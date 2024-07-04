@@ -14,6 +14,7 @@ const Modal = ({ closeModal }) => {
   return (
     <div className="modal">
       <div className="modal-content">
+        <span className="close" onClick={closeModal}>&times;</span>
         <img src={Succes} alt="" />
         <p>Ваш заказ подтвержден!</p>
       </div>
