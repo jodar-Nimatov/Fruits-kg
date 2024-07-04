@@ -12,12 +12,12 @@
     opacity: 0;
     pointer-events: none;
     transition: opacity 0.3s ease;
-    z-index: 1000;
   }
   
   .modal.show {
     opacity: 1;
     pointer-events: auto;
+    z-index: 1000;
   }
   
   .Modal {
