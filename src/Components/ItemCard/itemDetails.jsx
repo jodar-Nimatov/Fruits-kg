@@ -38,9 +38,7 @@ const ItemDetail = () => {
   return (
     <div className="Page">
       <div className="Page_inner container">
-        <div>
           <ModalBasket active={active} setActive={setActive} />
-        </div>
         <div className="Page_inner">
           <MenuHeader />
           <div className="block">
@@ -49,8 +47,8 @@ const ItemDetail = () => {
             </div>
             <div className="Card_text">
               <div className="q1">
-                <h2>{product.category}</h2>
-                <p>{product.description}</p>
+                <h2>{product.name}</h2>
+                <p className="p">{product.description}</p>
               </div>
               <div className="q2 text_price">
                 <h1>Цена: </h1> <h3> {product.price} ⃀</h3>

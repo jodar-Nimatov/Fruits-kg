@@ -27,28 +27,32 @@ const Basket = () => {
           </div>
 
           <div className="delivery">
-            <label for="vehicle1">Доставка 200сом</label>
-            <input
-              type="checkbox"
-              id="vehicle1"
-              name="vehicle1"
-              value="delivery"
-            />
+            <div className="labels">
+              <label for="vehicle1">Доставка 200 ⃀</label>
+              <input
+                type="checkbox"
+                id="vehicle1"
+                name="vehicle1"
+                value="delivery"
+              />
+            </div>
             <br></br>
-            <label for="vehicle2">Быстрый доставка 250сом</label>
-            <input
-              type="checkbox"
-              id="vehicle2"
-              name="vehicle2"
-              value="delivery"
-            />
+            <div className="labels">
+              <label for="vehicle2">Быстрая доставка 250 ⃀</label>
+              <input
+                type="checkbox"
+                id="vehicle2"
+                name="vehicle2"
+                value="delivery"
+              />
+            </div>
             <br></br>
           </div>
         </div>
         <div className="Basket-checkout">
           <section className="Basket-checkout-totalPrice">
             <h3>Итого</h3>
-            <p>10 522.00 com</p>
+            <p>10 522.00 ⃀</p>
           </section>
           <section>
             <button

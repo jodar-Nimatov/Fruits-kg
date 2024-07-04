@@ -2,11 +2,8 @@
   background-color: #0a0a08;
   width: 100%;
   height: 100%;
-
   &-header {
-    width: 1200px;
     height: 60px;
-    margin: auto;
 
     &-inner {
       padding-top: 30px;
@@ -44,7 +41,29 @@
   }
 
   &-inner {
-    padding: 150px;
+    .delivery{
+      padding-left: 22px;
+      .labels {
+       display: flex;
+       align-items: end;
+       input{
+        margin-bottom: 2.3px;
+       }
+      }
+    }
+    @media (max-width: 680px) {
+      padding: 100px 10px;
+      .delivery{
+        padding-left: 0;
+        word-spacing: 0px;
+        letter-spacing: 0.3px;
+      }
+    }
+    padding: 150px 50px;
+    &-row {
+      display: flex;
+      justify-content: center;
+    }
   }
 
   &-checkout {
@@ -53,12 +72,14 @@
     flex-direction: column;
     gap: 100px;
     padding: 0 150px;
-
+    @media (max-width: 780px) {
+      padding: 0;
+    }
     &-totalPrice {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      width: 951px;
+      width: 100%;
       height: 68px;
       border-bottom: 2px solid #38a24a;
       padding: 16px;
@@ -78,12 +99,12 @@
     }
 
     &-btn {
-      width: 324px;
+      width: 304px;
       height: 61px;
       border-radius: 4px;
       padding: 16px 56px;
       background-color: #38a24a;
-      font-size: 24px;
+      font-size: 22px;
       font-weight: 600;
       margin-bottom: 50px;
       cursor: pointer;

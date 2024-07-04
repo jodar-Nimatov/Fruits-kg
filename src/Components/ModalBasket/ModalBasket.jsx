@@ -6,7 +6,8 @@ const ModalBasket = ({ active, setActive }) => {
   const navigate = useNavigate();
 
   return (
-    <div className='Modal' style={active ? {display: 'block'} : {display: 'none'}}>
+    <div className={active ? 'modal show' : 'modal'}>
+    <div className='Modal'>
         <div className="Modal-inner">
             <section>
                 <h3>Товар добавлен в корзину</h3>
@@ -20,6 +21,7 @@ const ModalBasket = ({ active, setActive }) => {
                 </button>
             </section>
         </div>
+    </div>
     </div>
   )
 }
