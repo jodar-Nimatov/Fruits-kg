@@ -37,7 +37,6 @@
         }
     }
     &-inner{
-        overflow: hidden;
         display: flex;
         justify-content: center;
         margin-top: 200px;
@@ -82,5 +81,10 @@
                 }
             }
         }
+    }
+    .error-message {
+      color: red;
+      font-size: 12px;
+      margin-top: 5px;
     }
 }

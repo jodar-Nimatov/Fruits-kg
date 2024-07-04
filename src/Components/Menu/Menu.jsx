@@ -53,7 +53,7 @@ const Menu = () => {
                     key={product.id}
                     id={product.id}
                     price={product.price}
-                    title={product.name} // Assuming the correct field is 'name'
+                    title={product.name} 
                     img={product.image}
                   />
                 ))}
