@@ -49,7 +49,7 @@ const ItemDetail = () => {
             </div>
             <div className="Card_text">
               <div className="q1">
-                <h2>{product.category}</h2>
+                <h2>{product.name}</h2>
                 <p>{product.description}</p>
               </div>
               <div className="q2 text_price">
