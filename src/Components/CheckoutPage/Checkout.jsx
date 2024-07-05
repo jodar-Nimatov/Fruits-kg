@@ -22,7 +22,7 @@ const Checkout = () => {
 
   const handleChange = (e) => {
     const { id, value } = e.target;
-    
+
     if (id === "phone") {
       const phoneValue = value.replace(/\D/g, ""); // Удаляем все нецифровые символы
       if (phoneValue.startsWith("996") && phoneValue.length <= 12) {
@@ -74,6 +74,7 @@ const Checkout = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    //dispatch(sendfunction)
     if (validateForm()) {
       setIsModalOpen(true);
     }
