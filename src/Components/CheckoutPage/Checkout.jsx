@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import Logo from "../../assets/icons/logo.png";
 import "./Checkout.scss";
 import { useNavigate } from "react-router-dom";
-import Modal from "./modal"; 
+import Modal from "./modal";
 import Succes from "../../assets/icons/secces.svg";
 
 const Checkout = () => {

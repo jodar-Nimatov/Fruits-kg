@@ -30,7 +30,18 @@ const Menu = () => {
   const handleFilterChange = (categoryId) => {
     dispatch(setFilter(categoryId));
   };
-
+  const removeDuplicatesById = (array) => {
+    const uniqueIds = new Set();
+    return array.filter(item => {
+      if (uniqueIds.has(item.id)) {
+        return false; // Duplicate found, filter it out
+      } else {
+        uniqueIds.add(item.id); // Add id to Set
+        return true; // Unique item, keep it in the filtered array
+      }
+    });
+  };
+  
   return (
     <div className="Menu">
       <div className="Menu_inner">
@@ -69,7 +80,7 @@ const Menu = () => {
             {status === "loading" && <p>Loading...</p>}
             {status === "succeeded" && (
               <ul>
-                {products?.map((product) => (
+                {removeDuplicatesById(products)?.map((product) => (
                   <ItemCard
                     key={product.id}
                     id={product.id}
