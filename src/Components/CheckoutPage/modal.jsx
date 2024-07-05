@@ -1,22 +1,12 @@
-import React, { useEffect } from 'react';
-import './modal.scss';
-import Succes from "../../assets/icons/secces.svg"
+import React from 'react';
+import './modal.scss'; // для стилизации
 
-const Modal = ({ closeModal }) => {
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      closeModal(); // Закрытие модального окна через 5 секунд
-    }, 5000);
-
-    return () => clearTimeout(timer);
-  }, [closeModal]);
-
+const Modal = ({ show, handleClose, children }) => {
   return (
-    <div className="modal">
-      <div className="modal-content">
-        <span className="close" onClick={closeModal}>&times;</span>
-        <img src={Succes} alt="" />
-        <p>Ваш заказ подтвержден!</p>
+    <div className={`modal ${show ? 'show' : ''}`} onClick={handleClose}>
+      <div className="modal-content" onClick={e => e.stopPropagation()}>
+        <span className="close" onClick={handleClose}>&times;</span>
+        {children}
       </div>
     </div>
   );

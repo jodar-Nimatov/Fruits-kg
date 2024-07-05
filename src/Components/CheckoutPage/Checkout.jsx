@@ -2,69 +2,54 @@ import React, { useState } from "react";
 import Logo from "../../assets/icons/logo.png";
 import "./Checkout.scss";
 import { useNavigate } from "react-router-dom";
-import Modal from "./modal.jsx";
+import Modal from "./modal"; // Импорт модального окна
+import Succes from "../../assets/icons/secces.svg";
 
 const Checkout = () => {
   const navigate = useNavigate();
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const [errorMessages, setErrorMessages] = useState({
+  const [formData, setFormData] = useState({
+    name: "",
+    phone: "+996",
+    address: "",
+  });
+  const [errors, setErrors] = useState({
     name: "",
     phone: "",
     address: "",
   });
+
+  const handleChange = (e) => {
+    const { id, value } = e.target;
+    setFormData((prevState) => ({
+      ...prevState,
+      [id]: value,
+    }));
+    setErrors((prevState) => ({
+      ...prevState,
+      [id]: "", // Убираем ошибку при изменении поля
+    }));
+  };
+
+  const validateForm = () => {
+    const { name, phone, address } = formData;
+    const newErrors = {};
+    if (!name) newErrors.name = "Пожалуйста, введите имя.";
+    if (!phone || !phone.startsWith("+996") || phone.length < 7)
+      newErrors.phone =
+        "Пожалуйста, введите номер телефона, начинающийся с +996.";
+    if (!address) newErrors.address = "Пожалуйста, введите адрес.";
+    setErrors(newErrors);
+    return Object.keys(newErrors).length === 0;
+  };
+
   const handleSubmit = (e) => {
     e.preventDefault();
-
-    const name = e.target.elements.Name.value.trim();
-    const phone = e.target.elements.Phone.value.trim();
-    const address = e.target.elements.address.value.trim();
-
-    if (!name) {
-        setErrorMessages(prevState => ({
-          ...prevState,
-          name: 'Введите имя'
-        }));
-        return;
-      } else {
-        setErrorMessages(prevState => ({
-          ...prevState,
-          name: '' // Очистить сообщение об ошибке, если поле заполнено
-        }));
-      }
-  
-      if (!phone) {
-        setErrorMessages(prevState => ({
-          ...prevState,
-          phone: 'Введите телефон'
-        }));
-        return;
-      } else {
-        setErrorMessages(prevState => ({
-          ...prevState,
-          phone: '' // Очистить сообщение об ошибке, если поле заполнено
-        }));
-      }
-  
-      
-  
-      if (!address) {
-        setErrorMessages(prevState => ({
-          ...prevState,
-          address: 'Введите адрес'
-        }));
-        return;
-      } else {
-        setErrorMessages(prevState => ({
-          ...prevState,
-          address: '' // Очистить сообщение об ошибке, если поле заполнено
-        }));
-      }
-  
-     
-  
-      // Если все поля заполнены и телефон имеет правильный формат, открыть модальное окно
+    if (validateForm()) {
       setIsModalOpen(true);
-    };
+    }
+  };
+
   const closeModal = () => {
     setIsModalOpen(false);
   };
@@ -87,27 +72,53 @@ const Checkout = () => {
         </div>
         <div className="Checkout-inner">
           <form onSubmit={handleSubmit}>
-            <label htmlFor="Name">Имя</label>
-            <input id="Name" type="text" />
-            {errorMessages.name && <span className="error-message">{errorMessages.name}</span>}
+            <label htmlFor="name">Имя</label>
+            <input
+              id="name"
+              type="text"
+              value={formData.name}
+              onChange={handleChange}
+            />
+            {errors.name && <div className="error-message">{errors.name}</div>}
 
-            <label htmlFor="Phone">Телефон</label>
-            <input id="Phone" type="tel" />
-            {errorMessages.phone && (
-              <span className="error-message">{errorMessages.phone}</span>
+            <label htmlFor="phone">Телефон</label>
+            <input
+              id="phone"
+              type="tel"
+              value={formData.phone}
+              onChange={handleChange}
+            />
+            {errors.phone && (
+              <div className="error-message">{errors.phone}</div>
             )}
+
             <label htmlFor="address">Адрес</label>
-            <input id="address" type="text" />
-            {errorMessages.address && (
-              <span className="error-message">{errorMessages.address}</span>
+            <input
+              id="address"
+              type="text"
+              value={formData.address}
+              onChange={handleChange}
+            />
+            {errors.address && (
+              <div className="error-message">{errors.address}</div>
             )}
+
             <label htmlFor="description">Комментарий к заказу</label>
-            <input id="description" type="text" />
+            <input
+              id="description"
+              type="text"
+              value={formData.description}
+              onChange={handleChange}
+            />
+
             <button type="submit">Подтвердить заказ</button>
           </form>
         </div>
       </div>
-      {isModalOpen && <Modal closeModal={closeModal} />}
+      <Modal show={isModalOpen} handleClose={closeModal}>
+        <img src={Succes} alt="" />
+        <h2>Вы подтвердили свой заказ!</h2>
+      </Modal>
     </div>
   );
 };
