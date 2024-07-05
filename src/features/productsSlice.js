@@ -1,4 +1,3 @@
-// src/features/products/productsSlice.js
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 
 // Async thunk для получения всех продуктов
@@ -6,6 +5,15 @@ export const fetchProducts = createAsyncThunk(
   'products/fetchProducts',
   async () => {
     const response = await fetch('http://3.250.159.173/api/main/products/');
+    const data = await response.json();
+    return data;
+  }
+);
+
+export const fetchCatalogs = createAsyncThunk(
+  'products/fetchCatalogs',
+  async () => {
+    const response = await fetch('http://3.250.159.173/api/main/catalogs');
     const data = await response.json();
     return data;
   }
@@ -25,10 +33,18 @@ const productsSlice = createSlice({
   name: 'products',
   initialState: {
     items: [],
+    catalogs: [],
+    cstatus: 'idle',
     status: 'idle',
     error: null,
+    cerror: null,
+    filterId: 0, // добавили фильтр в состояние
   },
-  reducers: {},
+  reducers: {
+    setFilter: (state, action) => {
+      state.filterId = action.payload;
+    },
+  },
   extraReducers: (builder) => {
     builder
       .addCase(fetchProducts.pending, (state) => {
@@ -42,13 +58,22 @@ const productsSlice = createSlice({
         state.status = 'failed';
         state.error = action.error.message;
       })
+      .addCase(fetchCatalogs.pending, (state) => {
+        state.cstatus = 'loading';
+      })
+      .addCase(fetchCatalogs.fulfilled, (state, action) => {
+        state.cstatus = 'succeeded';
+        state.catalogs = action.payload;
+      })
+      .addCase(fetchCatalogs.rejected, (state, action) => {
+        state.cstatus = 'failed';
+        state.cerror = action.error.message;
+      })
       .addCase(fetchProductById.pending, (state) => {
         state.status = 'loading';
       })
       .addCase(fetchProductById.fulfilled, (state, action) => {
         state.status = 'succeeded';
-        // Добавляем информацию о конкретном товаре в items, если это нужно
-        // Ваша логика может отличаться, в зависимости от того, как вы храните данные
         state.items.push(action.payload);
       })
       .addCase(fetchProductById.rejected, (state, action) => {
@@ -57,5 +82,23 @@ const productsSlice = createSlice({
       });
   },
 });
+
+export const { setFilter } = productsSlice.actions;
+
+export const selectAllProducts = (state) => state.products.items;
+export const selectCatalogs = (state) => state.products.catalogs;
+export const selectFilter = (state) => state.products.filterId;
+
+export const selectFilteredProducts = (state) => {
+  const filterId = state.products.filterId;
+  const items = state.products.items;
+
+  if (filterId === 0) {
+    return items;
+  } else {
+    return items.filter(item => item.catalog === filterId)
+  }
+};
+
 
 export default productsSlice.reducer;
