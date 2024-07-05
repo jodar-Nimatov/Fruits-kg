@@ -24,7 +24,7 @@ const Checkout = () => {
     const { id, value } = e.target;
 
     if (id === "phone") {
-      const phoneValue = value.replace(/\D/g, ""); // Удаляем все нецифровые символы
+      const phoneValue = value.replace(/\D/g, ""); 
       if (phoneValue.startsWith("996") && phoneValue.length <= 12) {
         setFormData((prevState) => ({
           ...prevState,
