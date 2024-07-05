@@ -3,9 +3,19 @@ import "./Basket.scss";
 import Logo from "../../assets/icons/logo.png";
 import BasketItem from "../BasketItem/BasketItem";
 import { useNavigate } from "react-router-dom";
+import { useSelector } from "react-redux";
+import { selectCartItems, selectCartStatus, selectCartTotalPrice } from "../../features/cartSlice";
 
 const Basket = () => {
   const navigate = useNavigate();
+  const items = useSelector(selectCartItems);
+  const status = useSelector(selectCartStatus);
+  const totalPrice = useSelector(selectCartTotalPrice);
+
+  if (status === 'loading') {
+    return <div>Loading...</div>;
+  }
+
   return (
     <div className="Basket">
       <div className="container">
@@ -23,38 +33,30 @@ const Basket = () => {
         </div>
         <div className="Basket-inner">
           <div className="Basket-inner-row">
-            <BasketItem />
+            {items.map(item => (
+              <BasketItem key={item.id} item={item} />
+            ))}
           </div>
-
           <div className="delivery">
-            <label for="vehicle1">Доставка 200сом</label>
-            <input
-              type="checkbox"
-              id="vehicle1"
-              name="vehicle1"
-              value="delivery"
-            />
-            <br></br>
-            <label for="vehicle2">Быстрый доставка 250сом</label>
-            <input
-              type="checkbox"
-              id="vehicle2"
-              name="vehicle2"
-              value="delivery"
-            />
-            <br></br>
+            <div className="labels">
+              <label htmlFor="vehicle1">Доставка 200 ⃀</label>
+              <input type="checkbox" id="vehicle1" name="vehicle1" value="delivery" />
+            </div>
+            <br />
+            <div className="labels">
+              <label htmlFor="vehicle2">Быстрая доставка 250 ⃀</label>
+              <input type="checkbox" id="vehicle2" name="vehicle2" value="delivery" />
+            </div>
+            <br />
           </div>
         </div>
         <div className="Basket-checkout">
           <section className="Basket-checkout-totalPrice">
             <h3>Итого</h3>
-            <p>10 522.00 com</p>
+            <p>{totalPrice} ⃀</p>
           </section>
           <section>
-            <button
-              className="Basket-checkout-btn"
-              onClick={() => navigate("/Checkout")}
-            >
+            <button className="Basket-checkout-btn" onClick={() => navigate("/Checkout")}>
               Оформить заказ
             </button>
           </section>

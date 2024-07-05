@@ -7,10 +7,10 @@ import {
   selectProductLoading,
   selectProductError,
 } from "../../features/productSlice";
+import { addToCart } from "../../features/cartSlice";
 import "./itemDetails.scss";
 import MenuHeader from "../MenuHeader/MenuHeader";
 import ModalBasket from "../ModalBasket/ModalBasket";
-import { Swipers } from "./swiperr";
 
 const ItemDetail = () => {
   const [active, setActive] = useState(false);
@@ -21,8 +21,17 @@ const ItemDetail = () => {
   const error = useSelector(selectProductError);
 
   useEffect(() => {
-    dispatch(fetchProductById(id));
+    if (id) {
+      dispatch(fetchProductById(id));
+    }
   }, [dispatch, id]);
+
+  const handleAddToCart = () => {
+    if (product) {
+      dispatch(addToCart(product));
+      setActive(true);
+    }
+  }
 
   if (loading) {
     return <div>Loading...</div>;
@@ -35,22 +44,21 @@ const ItemDetail = () => {
   if (!product) {
     return <div>Product not found</div>;
   }
+
   return (
     <div className="Page">
       <div className="Page_inner container">
-        <div>
-          <ModalBasket active={active} setActive={setActive} />
-        </div>
+        <ModalBasket active={active} setActive={setActive} />
         <div className="Page_inner">
           <MenuHeader />
           <div className="block">
             <div className="img">
-              <Swipers image={product.image} />
+              <img src={product.image} alt="Product" />
             </div>
             <div className="Card_text">
               <div className="q1">
-                <h2>{product.category}</h2>
-                <p>{product.description}</p>
+                <h2>{product.name}</h2>
+                <p className="p">{product.description}</p>
               </div>
               <div className="q2 text_price">
                 <h1>Цена: </h1> <h3> {product.price} ⃀</h3>
@@ -58,7 +66,7 @@ const ItemDetail = () => {
             </div>
           </div>
           <div className="basket">
-            <button className="basket_button" onClick={() => setActive(true)}>
+            <button className="basket_button" onClick={handleAddToCart}>
               Добавить в корзину
             </button>
           </div>

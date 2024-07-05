@@ -1,18 +1,24 @@
 .BasketItem {
-    width: 951px;
-    height: 108px;
+    width: 100%;
+    padding-bottom: 10px;
     border-bottom: 2px solid #38A24A;
     margin-bottom: 30px;
     &-inner{
         display: flex;
         justify-content: space-between;
+        gap: 6px;
         & section{
             display: flex;
             align-items: center;
             gap: 15px;
+            @media (max-width: 680px) {
+                flex-direction: column;
+                gap: 7px;
+            }
             & img{
-                width: 81px;
-                height: 72px;
+                width: 120px;
+                height: 75px;
+                object-fit: contain;
                 border-radius: 4px;
             }
             & h3{
@@ -33,10 +39,16 @@
                 cursor: pointer;
             }
         }
+        .s1{
+            flex-direction: row;
+        }
         & div{
             display: flex;
             align-items: center;
             gap: 20px;
+            @media (max-width: 760px) {
+                flex-direction: column;
+            }
             & p{
                 color: white;
                 font-size: 26px;
