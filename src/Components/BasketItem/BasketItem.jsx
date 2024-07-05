@@ -22,14 +22,14 @@ const BasketItem = () => {
                 <h3>Ananas</h3>
             </section>
             <div>
-                <section>
+                <section className='s1'>
                     <button onClick={decreaseKillos}>-</button>
                     <h4>{killograms} Kg</h4>
                     <button onClick={increaseKillos}>+</button>
                 </section>
                 <section>
                     <p>
-                        1 522.00 com
+                        1 522.00 ⃀
                     </p>
                 </section>
             </div>

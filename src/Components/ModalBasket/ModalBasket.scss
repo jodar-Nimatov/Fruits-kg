@@ -1,41 +1,67 @@
-.Modal{
+
+.modal {
     position: fixed;
-    z-index: 1;
-    top: 250px;
-    left: 600px;
-    width: 670px;
-    height: 426px;
-    border-radius: 4px;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+  }
+  
+  .modal.show {
+    opacity: 1;
+    pointer-events: auto;
+    z-index: 1000;
+  }
+  
+  .Modal {
     background-color: #FFFFFF;
-    &-inner{
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 45px;
-        padding-top: 100px;
-        & section {
-            display: flex;
-            flex-direction: column;
-            gap: 20px;
-            & h3{
-                color: black;
-                font-size: 24px;
-                font-weight: 600;
-                line-height: 29.26px;
-            }
-            & button:nth-child(1){
-                background-color: #38A24A;
-            }
-            & button{
-                width: 300px;
-                height: 38px;
-                border-radius: 4px;
-                border: 1px solid #38A24A;
-                font-size: 18px;
-                font-weight: 500;
-                line-height: 21.94px;
-                cursor: pointer;
-            }
-        }
-    }
-}
+    border-radius: 4px;
+    width: 80%;
+    max-width: 500px;
+    padding: 20px;
+    position: relative;
+  }
+  
+  .Modal-inner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 45px;
+    padding: 50px;
+  }
+  
+  .Modal-inner section {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  
+  .Modal-inner section h3 {
+    color: black;
+    font-size: 24px;
+    font-weight: 600;
+    line-height: 29.26px;
+  }
+  
+  .Modal-inner section button:nth-child(1) {
+    background-color: #38A24A;
+    color: white;
+  }
+  
+  .Modal-inner section button {
+    width: 300px;
+    height: 38px;
+    border-radius: 4px;
+    border: 1px solid #38A24A;
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 21.94px;
+    cursor: pointer;
+  }

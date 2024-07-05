@@ -8,11 +8,12 @@
     max-width: 1200px;
     height: 60px;
     display: flex;
+    align-items: center;
     justify-content: space-between;
     .header-img {
       img {
         width: 82px;
-        height: 60px;
+        scale: 1.5;
       }
     }
     .socal-media {

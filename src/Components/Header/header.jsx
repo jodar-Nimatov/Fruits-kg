@@ -1,6 +1,6 @@
 import WhatsApp from "../../assets/icons/whatsapp.svg";
 import "./header.scss";
-import logoImage from "../../assets/icons/logo.gif";
+import logoImage from "../../assets/icons/logo.png";
 import { Link } from "react-router-dom";
 
 const header = () => {

@@ -2,7 +2,7 @@ import { useNavigate } from 'react-router-dom';
 import './ItemCard.scss';
 import React from 'react';
 
-const ItemCard = ({id, title, img, price }) => { 	
+const ItemCard = ({id, title, img, price}) => { 	
     const navigate = useNavigate();
 
     const handleCardClick = () => {
@@ -17,7 +17,7 @@ const ItemCard = ({id, title, img, price }) => {
                 </section>
                 <section>
                     <p>{title}</p>
-                    <h2>{price} com</h2>
+                    <h2>{price} ⃀</h2>
                 </section>
             </div>
         </div>
