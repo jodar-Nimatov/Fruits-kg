@@ -24,6 +24,13 @@ const Basket = () => {
         <div className="Basket-inner">
           <div className="Basket-inner-row">
             <BasketItem />
+            <BasketItem />
+            <BasketItem />
+            <BasketItem />
+            <BasketItem />
+            <BasketItem />
+            <BasketItem />
+            <BasketItem />
            
           </div>
 

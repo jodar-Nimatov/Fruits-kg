@@ -1,9 +1,9 @@
 import React from 'react';
-import './modal.scss'; // для стилизации
+import './modal.scss';
 
 const Modal = ({ show, handleClose, children }) => {
   return (
-    <div className={`modal ${show ? 'show' : ''}`} onClick={handleClose}>
+    <div className={`modals ${show ? 'show' : ''}`} onClick={handleClose}>
       <div className="modal-content" onClick={e => e.stopPropagation()}>
         <span className="close" onClick={handleClose}>&times;</span>
         {children}

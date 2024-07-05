@@ -62,6 +62,7 @@
     padding: 150px 50px;
     &-row {
       display: flex;
+      flex-direction: column;
       justify-content: center;
     }
   }
