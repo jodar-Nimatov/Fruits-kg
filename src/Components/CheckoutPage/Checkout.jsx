@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import Logo from "../../assets/icons/logo.png";
 import "./Checkout.scss";
 import { useNavigate } from "react-router-dom";
-import Modal from "./modal"; // Импорт модального окна
+import Modal from "./modal";
 import Succes from "../../assets/icons/secces.svg";
 
 const Checkout = () => {
@@ -12,6 +12,7 @@ const Checkout = () => {
     name: "",
     phone: "+996",
     address: "",
+    description: "",
   });
   const [errors, setErrors] = useState({
     name: "",
@@ -21,23 +22,51 @@ const Checkout = () => {
 
   const handleChange = (e) => {
     const { id, value } = e.target;
-    setFormData((prevState) => ({
-      ...prevState,
-      [id]: value,
-    }));
-    setErrors((prevState) => ({
-      ...prevState,
-      [id]: "", // Убираем ошибку при изменении поля
-    }));
+    
+    if (id === "phone") {
+      const phoneValue = value.replace(/\D/g, ""); // Удаляем все нецифровые символы
+      if (phoneValue.startsWith("996") && phoneValue.length <= 12) {
+        setFormData((prevState) => ({
+          ...prevState,
+          [id]: `+${phoneValue}`,
+        }));
+        setErrors((prevState) => ({
+          ...prevState,
+          [id]: "",
+        }));
+      } else if (phoneValue.length <= 9) {
+        setFormData((prevState) => ({
+          ...prevState,
+          [id]: `+996${phoneValue}`,
+        }));
+        setErrors((prevState) => ({
+          ...prevState,
+          [id]: "",
+        }));
+      } else {
+        setErrors((prevState) => ({
+          ...prevState,
+          [id]: "Номер телефона должен содержать не более 9 цифр после префикса +996",
+        }));
+      }
+    } else {
+      setFormData((prevState) => ({
+        ...prevState,
+        [id]: value,
+      }));
+      setErrors((prevState) => ({
+        ...prevState,
+        [id]: "",
+      }));
+    }
   };
 
   const validateForm = () => {
     const { name, phone, address } = formData;
     const newErrors = {};
     if (!name) newErrors.name = "Пожалуйста, введите имя.";
-    if (!phone || !phone.startsWith("+996") || phone.length < 7)
-      newErrors.phone =
-        "Пожалуйста, введите номер телефона, начинающийся с +996.";
+    if (!phone || !phone.startsWith("+996") || phone.length !== 13)
+      newErrors.phone = "Пожалуйста, введите номер телефона, начинающийся с +996 и содержащий 9 цифр.";
     if (!address) newErrors.address = "Пожалуйста, введите адрес.";
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0;
@@ -116,8 +145,9 @@ const Checkout = () => {
         </div>
       </div>
       <Modal show={isModalOpen} handleClose={closeModal}>
-        <img src={Succes} alt="" />
+        <img src={Succes} alt="Успешно" />
         <h2>Вы подтвердили свой заказ!</h2>
+        <h2>Мы вам позвоним</h2>
       </Modal>
     </div>
   );
