@@ -61,7 +61,7 @@ const ItemDetail = () => {
                 <p className="p">{product.description}</p>
               </div>
               <div className="q2 text_price">
-                <h1>Цена: </h1> <h3> {product.price} ⃀</h3>
+                <h1>Цена: </h1> <h3> {product.price} <span className="som">c</span></h3>
               </div>
             </div>
           </div>

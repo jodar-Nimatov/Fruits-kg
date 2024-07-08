@@ -1,16 +1,24 @@
-import React from "react";
+import React, { useState } from "react";
 import "./Basket.scss";
 import Logo from "../../assets/icons/logo.png";
 import BasketItem from "../BasketItem/BasketItem";
 import { useNavigate } from "react-router-dom";
-import { useSelector } from "react-redux";
-import { selectCartItems, selectCartStatus, selectCartTotalPrice } from "../../features/cartSlice";
+import { useDispatch, useSelector } from "react-redux";
+import { addDelToCart, selectCartItems, selectCartStatus, selectCartTotalPrice } from "../../features/cartSlice";
 
 const Basket = () => {
   const navigate = useNavigate();
   const items = useSelector(selectCartItems);
   const status = useSelector(selectCartStatus);
   const totalPrice = useSelector(selectCartTotalPrice);
+  const dispatch = useDispatch();
+
+  const [selectedOption, setSelectedOption] = useState(0);
+
+  const handleRadioChange = (e) => {
+    setSelectedOption(+e.target.value)
+    dispatch(addDelToCart(+e.target.value));
+  };
 
   if (status === 'loading') {
     return <div>Loading...</div>;
@@ -38,22 +46,35 @@ const Basket = () => {
             ))}
           </div>
           <div className="delivery">
-            <div className="labels">
-              <label htmlFor="vehicle1">Доставка 200 ⃀</label>
-              <input type="checkbox" id="vehicle1" name="vehicle1" value="delivery" />
+            <div>
+              <input
+                type="radio"
+                id="normalDelivery"
+                name="option"
+                value={200}
+                checked={selectedOption === 200}
+                onChange={handleRadioChange}
+              />
+              <label htmlFor="normalDelivery">Доставка 200 <span className="som">c</span></label>
             </div>
             <br />
-            <div className="labels">
-              <label htmlFor="vehicle2">Быстрая доставка 250 ⃀</label>
-              <input type="checkbox" id="vehicle2" name="vehicle2" value="delivery" />
+            <div>
+              <input
+                type="radio"
+                id="quickDelivery"
+                name="option"
+                value={250}
+                checked={selectedOption === 250}
+                onChange={handleRadioChange}
+              />
+              <label htmlFor="quickDelivery">Быстрая доставка 250 <span className="som">c</span></label>
             </div>
-            <br />
           </div>
         </div>
         <div className="Basket-checkout">
           <section className="Basket-checkout-totalPrice">
             <h3>Итого</h3>
-            <p>{totalPrice} ⃀</p>
+            <p>{totalPrice} <span className="som">c</span></p>
           </section>
           <section>
             <button className="Basket-checkout-btn" onClick={() => navigate("/Checkout")}>

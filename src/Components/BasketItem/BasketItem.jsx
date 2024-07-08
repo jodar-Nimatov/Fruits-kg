@@ -6,7 +6,6 @@ import image from '../../assets/images/Rectangle 1.png';
 
 const BasketItem = ({ item }) => {
   const dispatch = useDispatch();
-
   const increaseKillos = () => {
     const newQuantity = item.quantity + 1;
     dispatch(updateQuantity({ id: item.id, quantity: newQuantity }));
@@ -35,7 +34,7 @@ const BasketItem = ({ item }) => {
             <button onClick={increaseKillos}>+</button>
           </section>
           <section>
-            <p>{item.price * item.quantity} ⃀</p>
+            <p>{item.price * item.quantity} <span className="som">c</span></p>
           </section>
         </div>
       </div>

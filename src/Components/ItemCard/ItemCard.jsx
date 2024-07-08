@@ -17,7 +17,7 @@ const ItemCard = ({id, title, img, price}) => {
                 </section>
                 <section>
                     <p>{title}</p>
-                    <h2>{price} ⃀</h2>
+                    <h2>{price} <span className="som">c</span></h2>
                 </section>
             </div>
         </div>
