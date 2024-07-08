@@ -3,9 +3,19 @@ import "./Basket.scss";
 import Logo from "../../assets/icons/logo.png";
 import BasketItem from "../BasketItem/BasketItem";
 import { useNavigate } from "react-router-dom";
+import { useSelector } from "react-redux";
+import { selectCartItems, selectCartStatus, selectCartTotalPrice } from "../../features/cartSlice";
 
 const Basket = () => {
   const navigate = useNavigate();
+  const items = useSelector(selectCartItems);
+  const status = useSelector(selectCartStatus);
+  const totalPrice = useSelector(selectCartTotalPrice);
+
+  if (status === 'loading') {
+    return <div>Loading...</div>;
+  }
+
   return (
     <div className="Basket">
       <div className="container">
@@ -23,50 +33,30 @@ const Basket = () => {
         </div>
         <div className="Basket-inner">
           <div className="Basket-inner-row">
-            <BasketItem />
-            <BasketItem />
-            <BasketItem />
-            <BasketItem />
-            <BasketItem />
-            <BasketItem />
-            <BasketItem />
-            <BasketItem />
-           
+            {items.map(item => (
+              <BasketItem key={item.id} item={item} />
+            ))}
           </div>
-
           <div className="delivery">
             <div className="labels">
-              <label for="vehicle1">Доставка 200 ⃀</label>
-              <input
-                type="checkbox"
-                id="vehicle1"
-                name="vehicle1"
-                value="delivery"
-              />
+              <label htmlFor="vehicle1">Доставка 200 ⃀</label>
+              <input type="checkbox" id="vehicle1" name="vehicle1" value="delivery" />
             </div>
-            <br></br>
+            <br />
             <div className="labels">
-              <label for="vehicle2">Быстрая доставка 250 ⃀</label>
-              <input
-                type="checkbox"
-                id="vehicle2"
-                name="vehicle2"
-                value="delivery"
-              />
+              <label htmlFor="vehicle2">Быстрая доставка 250 ⃀</label>
+              <input type="checkbox" id="vehicle2" name="vehicle2" value="delivery" />
             </div>
-            <br></br>
+            <br />
           </div>
         </div>
         <div className="Basket-checkout">
           <section className="Basket-checkout-totalPrice">
             <h3>Итого</h3>
-            <p>10 522.00 ⃀</p>
+            <p>{totalPrice} ⃀</p>
           </section>
           <section>
-            <button
-              className="Basket-checkout-btn"
-              onClick={() => navigate("/Checkout")}
-            >
+            <button className="Basket-checkout-btn" onClick={() => navigate("/Checkout")}>
               Оформить заказ
             </button>
           </section>

@@ -1,41 +1,46 @@
-import React, { useState } from 'react'
-import './BasketItem.scss'
-import image from '../../assets/images/Rectangle 1.png'
+import React from 'react';
+import './BasketItem.scss';
+import { useDispatch } from 'react-redux';
+import { updateQuantity, removeFromCart } from '../../features/cartSlice';
+import image from '../../assets/images/Rectangle 1.png';
 
-const BasketItem = () => {
-    
-    const [killograms, setKillograms] = useState(1)
+const BasketItem = ({ item }) => {
+  const dispatch = useDispatch();
 
-    const increaseKillos = () => {
-        setKillograms(killograms + 1)
+  const increaseKillos = () => {
+    const newQuantity = item.quantity + 1;
+    dispatch(updateQuantity({ id: item.id, quantity: newQuantity }));
+  };
+
+  const decreaseKillos = () => {
+    if (item.quantity > 1) {
+      const newQuantity = item.quantity - 1;
+      dispatch(updateQuantity({ id: item.id, quantity: newQuantity }));
+    } else {
+      dispatch(removeFromCart(item.id));
     }
-
-    const decreaseKillos = () => {
-        setKillograms(killograms - 1)
-    }
+  };
 
   return (
     <div className='BasketItem'>
-        <div className="BasketItem-inner">
-            <section>
-                <img src={image} alt="IMG" />
-                <h3>Ananas</h3>
-            </section>
-            <div>
-                <section className='s1'>
-                    <button onClick={decreaseKillos}>-</button>
-                    <h4>{killograms} Kg</h4>
-                    <button onClick={increaseKillos}>+</button>
-                </section>
-                <section>
-                    <p>
-                        1 522.00 ⃀
-                    </p>
-                </section>
-            </div>
+      <div className="BasketItem-inner">
+        <section>
+          <img src={item.image || image} alt="IMG" />
+          <h3>{item.name}</h3>
+        </section>
+        <div>
+          <section className='s1'>
+            <button onClick={decreaseKillos}>-</button>
+            <h4>{item.quantity} Kg</h4>
+            <button onClick={increaseKillos}>+</button>
+          </section>
+          <section>
+            <p>{item.price * item.quantity} ⃀</p>
+          </section>
         </div>
+      </div>
     </div>
-  )
-}
+  );
+};
 
-export default BasketItem
+export default BasketItem;

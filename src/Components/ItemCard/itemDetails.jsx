@@ -7,6 +7,7 @@ import {
   selectProductLoading,
   selectProductError,
 } from "../../features/productSlice";
+import { addToCart } from "../../features/cartSlice";
 import "./itemDetails.scss";
 import MenuHeader from "../MenuHeader/MenuHeader";
 import ModalBasket from "../ModalBasket/ModalBasket";
@@ -20,8 +21,17 @@ const ItemDetail = () => {
   const error = useSelector(selectProductError);
 
   useEffect(() => {
-    dispatch(fetchProductById(id));
+    if (id) {
+      dispatch(fetchProductById(id));
+    }
   }, [dispatch, id]);
+
+  const handleAddToCart = () => {
+    if (product) {
+      dispatch(addToCart(product));
+      setActive(true);
+    }
+  }
 
   if (loading) {
     return <div>Loading...</div>;
@@ -34,15 +44,16 @@ const ItemDetail = () => {
   if (!product) {
     return <div>Product not found</div>;
   }
+
   return (
     <div className="Page">
       <div className="Page_inner container">
-          <ModalBasket active={active} setActive={setActive} />
+        <ModalBasket active={active} setActive={setActive} />
         <div className="Page_inner">
           <MenuHeader />
           <div className="block">
             <div className="img">
-            <img src={product.image} alt="Product" />
+              <img src={product.image} alt="Product" />
             </div>
             <div className="Card_text">
               <div className="q1">
@@ -55,7 +66,7 @@ const ItemDetail = () => {
             </div>
           </div>
           <div className="basket">
-            <button className="basket_button" onClick={() => setActive(true)}>
+            <button className="basket_button" onClick={handleAddToCart}>
               Добавить в корзину
             </button>
           </div>
