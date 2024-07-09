@@ -4,10 +4,14 @@ import "./Checkout.scss";
 import { useNavigate } from "react-router-dom";
 import Modal from "./modal";
 import Succes from "../../assets/icons/secces.svg";
+import { postData, selectCartItems } from "../../features/cartSlice";
+import { useDispatch, useSelector } from "react-redux";
 
 const Checkout = () => {
   const navigate = useNavigate();
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const dispatch = useDispatch();
+  const items = useSelector(selectCartItems);
   const [formData, setFormData] = useState({
     name: "",
     phone: "+996",
@@ -22,7 +26,7 @@ const Checkout = () => {
 
   const handleChange = (e) => {
     const { id, value } = e.target;
-    
+
     if (id === "phone") {
       const phoneValue = value.replace(/\D/g, ""); // Удаляем все нецифровые символы
       if (phoneValue.startsWith("996") && phoneValue.length <= 12) {
@@ -72,9 +76,16 @@ const Checkout = () => {
     return Object.keys(newErrors).length === 0;
   };
 
+  const textRepresentation = "\n\nТовары:" + items.map(product => {
+    return `\n\nID Продукта: ${product.id} \nНазвание: ${product.name} \nЦена: ${product.price} сом \nКилограмм: ${product.quantity} \nИзображение: ${product.image}`});
+
   const handleSubmit = (e) => {
     e.preventDefault();
     if (validateForm()) {
+      dispatch(postData({
+        message: `
+        Имя: ${formData.name} \nТелефон: ${formData.phone} \nАдрес: ${formData.address} \nКомментарий: ${formData.description || '.'} ${textRepresentation}`
+      }))
       setIsModalOpen(true);
     }
   };
@@ -82,6 +93,7 @@ const Checkout = () => {
   const closeModal = () => {
     setIsModalOpen(false);
   };
+
 
   return (
     <div className="Checkout">

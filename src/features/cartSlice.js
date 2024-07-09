@@ -1,4 +1,5 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
+import axios from "axios";
 
 // Function to load cart items from localStorage
 const loadCartItemsFromLocalStorage = () => {
@@ -12,6 +13,15 @@ const saveCartToLocalStorage = (state) => {
   localStorage.setItem('total', JSON.stringify(state.items.reduce((total, item) => total + (item.price * item.quantity), 0) + state.delivery));
 };
 
+export const postData = createAsyncThunk('cart/postData', async (requestData) => {
+  try {
+    const response = await axios.post('http://3.250.159.173/api/main/telegram-messages/send_message/', requestData);
+    return response.data;
+  } catch (error) {
+    return error.response.data;
+  }
+});
+
 const cartSlice = createSlice({
   name: 'cart',
   initialState: {
@@ -19,7 +29,10 @@ const cartSlice = createSlice({
     status: 'idle',
     error: null,
     delivery: 0,
-    total: loadCartItemsFromLocalStorage().total
+    total: loadCartItemsFromLocalStorage().total,
+    perror: null,
+    pstatus: 'idle',
+    responseData: null,
   },
   reducers: {
     addDelToCart: (state, action) => {
@@ -48,6 +61,22 @@ const cartSlice = createSlice({
         saveCartToLocalStorage(state);
       }
     }
+  },
+  extraReducers: (builder) => {
+    builder
+    .addCase(postData.pending, (state) => {
+      state.pstatus = 'loading'; // Устанавливаем статус loading при начале запроса
+      state.perror = null; // Сбрасываем ошибки
+      state.responseData = null; // Сбрасываем данные ответа
+    })
+    .addCase(postData.fulfilled,  (state, action) => {
+      state.pstatus = 'succeeded'; // Устанавливаем статус succeeded при успешном выполнении запроса
+      state.responseData = action.payload; // Записываем данные ответа
+    })
+    .addCase(postData.rejected, (state, action) => {
+      state.pstatus = 'failed'; // Устанавливаем статус failed при неудаче
+      state.perror = action.error.message; // Записываем сообщение об ошибке
+    })
   },
 });
 
