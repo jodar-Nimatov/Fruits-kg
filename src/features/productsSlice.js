@@ -4,7 +4,7 @@ import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 export const fetchProducts = createAsyncThunk(
   'products/fetchProducts',
   async () => {
-    const response = await fetch('http://3.250.159.173/api/main/products/');
+    const response = await fetch('https://fruitstore.pp.ua/api/main/products/');
     const data = await response.json();
     return data;
   }
@@ -13,7 +13,7 @@ export const fetchProducts = createAsyncThunk(
 export const fetchCatalogs = createAsyncThunk(
   'products/fetchCatalogs',
   async () => {
-    const response = await fetch('http://3.250.159.173/api/main/catalogs');
+    const response = await fetch('https://fruitstore.pp.ua/api/main/catalogs');
     const data = await response.json();
     return data;
   }
@@ -23,7 +23,7 @@ export const fetchCatalogs = createAsyncThunk(
 export const fetchProductById = createAsyncThunk(
   'products/fetchProductById',
   async (productId) => {
-    const response = await fetch(`http://3.250.159.173/api/main/products/${productId}`);
+    const response = await fetch(`https://fruitstore.pp.ua/api/main/products/${productId}`);
     const data = await response.json();
     return data;
   }

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import {
   fetchProductById,
   selectProduct,
@@ -11,6 +11,7 @@ import { addToCart } from "../../features/cartSlice";
 import "./itemDetails.scss";
 import MenuHeader from "../MenuHeader/MenuHeader";
 import ModalBasket from "../ModalBasket/ModalBasket";
+
 
 const ItemDetail = () => {
   const [active, setActive] = useState(false);
@@ -51,6 +52,7 @@ const ItemDetail = () => {
         <ModalBasket active={active} setActive={setActive} />
         <div className="Page_inner">
           <MenuHeader />
+          <Link to="/menu"><button style="background: transparent; padding: 3px 5px; border: 1px solid black; color: white; hover: background: gray;">Назад</button></Link>
           <div className="block">
             <div className="img">
               <img src={product.image} alt="Product" />

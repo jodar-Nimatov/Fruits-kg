@@ -15,7 +15,7 @@ const saveCartToLocalStorage = (state) => {
 
 export const postData = createAsyncThunk('cart/postData', async (requestData) => {
   try {
-    const response = await axios.post('http://3.250.159.173/api/main/telegram-messages/send_message/', requestData);
+    const response = await axios.post('https://fruitstore.pp.ua/api/main/telegram-messages/send_message/', requestData);
     return response.data;
   } catch (error) {
     return error.response.data;
