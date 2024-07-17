@@ -52,7 +52,7 @@ const ItemDetail = () => {
         <ModalBasket active={active} setActive={setActive} />
         <div className="Page_inner">
           <MenuHeader />
-          <Link to="/menu"><button style="background: transparent; padding: 3px 5px; border: 1px solid black; color: white; hover: background: gray;">Назад</button></Link>
+          <Link to="/menu"><button className="kdk">Назад</button></Link>
           <div className="block">
             <div className="img">
               <img src={product.image} alt="Product" />

@@ -8,6 +8,13 @@
   color: #fff;
   height: 100%;
   min-height: 1000px;
+  .kdk{
+    background: transparent; 
+    padding: 3px 5px;
+    border: 1px solid black;
+    color: white; 
+    &:hover{ background: gray };
+  }
   &_inner {
     max-width: 980px;
     margin: 0 auto;
