@@ -87,7 +87,7 @@ const Checkout = () => {
     if (validateForm()) {
       dispatch(postData({
         message: `
-        Имя: ${formData.name} \nТелефон: ${formData.phone} \nАдрес: ${formData.address} \nКомментарий: ${formData.description || '.'} ${textRepresentation} ${totalPriceAndDelivery}\n${"Общая сумма: " + total}`
+        Имя: ${formData.name} \nТелефон: ${formData.phone} \nАдрес: ${formData.address} \nКомментарий: ${formData.description || '.'} ${textRepresentation} ${totalPriceAndDelivery}\n${"Общая сумма: " + +localStorage.getItem('total')}`
       }))
       setIsModalOpen(true);
     }
