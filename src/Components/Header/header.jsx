@@ -17,7 +17,7 @@ const header = () => {
             </Link>
           </div>
           <div className="socal-media">
-            <a href="//instagram.com">
+            <a href="https://www.instagram.com/dilshodovich.a.k/">
               <svg
                 width="32"
                 height="32"
@@ -31,7 +31,7 @@ const header = () => {
                 />
               </svg>
             </a>
-            <a href="">
+            <a href="https://t.me/+996706141295">
               <svg
                 width="32"
                 height="32"
@@ -45,7 +45,7 @@ const header = () => {
                 />
               </svg>
             </a>
-            <a href="">
+            <a href="https://wa.me/+996706141295" target="_blank">
               <img src={WhatsApp} alt="whatsapp" />
             </a>
           </div>
