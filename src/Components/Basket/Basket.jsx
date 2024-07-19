@@ -11,6 +11,7 @@ const Basket = () => {
   const items = useSelector(selectCartItems);
   const status = useSelector(selectCartStatus);
   const totalPrice = useSelector(selectCartTotalPrice);
+  const delivery = useSelector(state => state.cart.delivery);
   const dispatch = useDispatch();
 
   const [selectedOption, setSelectedOption] = useState(200);
@@ -78,7 +79,7 @@ const Basket = () => {
             <p>{totalPrice} <span className="som">c</span></p>
           </section>
           <section>
-            <button className="Basket-checkout-btn" onClick={() => navigate("/Checkout")}>
+            <button className="Basket-checkout-btn" onClick={() => navigate("/Checkout")} disabled={delivery == 0 && totalPrice > 250}>
               Оформить заказ
             </button>
           </section>
