@@ -77,7 +77,7 @@ const Checkout = () => {
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0;
   };
-  const totalPriceAndDelivery = "Доставка: " + delivery == 200 ? "Обычная 200 сом" : "Быстрая 250 сом" + "\n Общая сумма: " + total;
+  const totalPriceAndDelivery = delivery == 200 ? "\n\n Доставка: Обычная 200 сом" : "Доставка: Быстрая 250 сом" + "\n Общая сумма: " + total;
 
   const textRepresentation = "\n\nТовары:" + items.map(product => {
     return `\n\nID Продукта: ${product.id} \nНазвание: ${product.name} \nЦена: ${product.price} сом \nКилограмм: ${product.quantity} \nИзображение: ${product.image}`});
