@@ -46,7 +46,7 @@ const header = () => {
               </svg>
             </a>
             <a href="">
-              <img src={WhatsApp} alt="" />
+              <img src={WhatsApp} alt="whatsapp" />
             </a>
           </div>
         </div>

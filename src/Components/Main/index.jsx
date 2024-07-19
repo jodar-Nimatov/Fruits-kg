@@ -14,7 +14,7 @@ const Index = () => {
             <div className="block-content">
               <div className="main-logo-container">
                 <div className="main-logo">
-                  <img src={Mainlogo} alt="" />
+                  <img src={Mainlogo} alt="Logo" />
                 </div>
               </div>
               <div className="main-text">
