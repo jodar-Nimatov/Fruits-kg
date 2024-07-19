@@ -1,5 +1,5 @@
-import React from "react";
-import { BrowserRouter as Router, Route, Routes, Link } from "react-router-dom";
+import React, { useEffect } from "react";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Menu from "./Components/Menu/Menu";
 import Main from "./Components/Main";
 import "./App.scss";
@@ -9,7 +9,9 @@ import Checkout from "./Components/CheckoutPage/Checkout";
 
 
 function App() {
-
+  useEffect(()=>{
+    localStorage.setItem('total', JSON.stringify(200));
+  }, [])
   return (
     <Router>
       <Routes>

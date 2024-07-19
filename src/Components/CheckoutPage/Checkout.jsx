@@ -12,6 +12,8 @@ const Checkout = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const dispatch = useDispatch();
   const items = useSelector(selectCartItems);
+  const delivery = useSelector(state => state.cart.delivery);
+  const total = useSelector(state => state.cart.total);
   const [formData, setFormData] = useState({
     name: "",
     phone: "+996",
@@ -75,6 +77,7 @@ const Checkout = () => {
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0;
   };
+  const totalPriceAndDelivery = "Доставка: " + delivery == 200 ? "Обычная 200 сом" : "Быстрая 250 сом" + "\n Общая сумма: " + total;
 
   const textRepresentation = "\n\nТовары:" + items.map(product => {
     return `\n\nID Продукта: ${product.id} \nНазвание: ${product.name} \nЦена: ${product.price} сом \nКилограмм: ${product.quantity} \nИзображение: ${product.image}`});
@@ -84,7 +87,7 @@ const Checkout = () => {
     if (validateForm()) {
       dispatch(postData({
         message: `
-        Имя: ${formData.name} \nТелефон: ${formData.phone} \nАдрес: ${formData.address} \nКомментарий: ${formData.description || '.'} ${textRepresentation}`
+        Имя: ${formData.name} \nТелефон: ${formData.phone} \nАдрес: ${formData.address} \nКомментарий: ${formData.description || '.'} ${textRepresentation} ${totalPriceAndDelivery}`
       }))
       setIsModalOpen(true);
     }

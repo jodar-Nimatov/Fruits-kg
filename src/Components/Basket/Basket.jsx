@@ -13,7 +13,7 @@ const Basket = () => {
   const totalPrice = useSelector(selectCartTotalPrice);
   const dispatch = useDispatch();
 
-  const [selectedOption, setSelectedOption] = useState(0);
+  const [selectedOption, setSelectedOption] = useState(200);
 
   const handleRadioChange = (e) => {
     setSelectedOption(+e.target.value)
@@ -51,11 +51,12 @@ const Basket = () => {
                 type="radio"
                 id="normalDelivery"
                 name="option"
+                defaultChecked
                 value={200}
                 checked={selectedOption === 200}
                 onChange={handleRadioChange}
               />
-              <label htmlFor="normalDelivery">Доставка 200 <span className="som">c</span></label>
+              <label htmlFor="normalDelivery" >Доставка 200 <span className="som">c</span></label>
             </div>
             <br />
             <div>

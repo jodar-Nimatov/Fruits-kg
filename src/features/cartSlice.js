@@ -28,7 +28,7 @@ const cartSlice = createSlice({
     items: loadCartItemsFromLocalStorage().items,
     status: 'idle',
     error: null,
-    delivery: 0,
+    delivery: 200,
     total: loadCartItemsFromLocalStorage().total,
     perror: null,
     pstatus: 'idle',
