@@ -17,6 +17,19 @@
     padding: 0 15px;
   }
 }
+.kdk {
+  background: linear-gradient(135deg, #844839, #483a2f);
+  border: none;
+  border-radius: 15px;
+  padding: 10px 15px;
+  font-size: 18px;
+  color: white;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
 html,
 body {
   font-family: Montserrat, sans-serif;

@@ -14,19 +14,7 @@
     border: 1px solid black;
     color: white;
   }
-  .kdk {
-    background: linear-gradient(135deg, #844839, #483a2f);
-    border: none;
-    border-radius: 15px;
-    padding: 10px 15px;
-    font-size: 18px;
-    color: white;
-    text-transform: uppercase;
-    letter-spacing: 1.5px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-    cursor: pointer;
-    transition: all 0.3s ease;
-  }
+
   &_inner {
     max-width: 980px;
     margin: 0 auto;

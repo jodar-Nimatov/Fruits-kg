@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Logo from "../../assets/icons/logo.png";
 import "./Checkout.scss";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Modal from "./modal";
 import Succes from "../../assets/icons/secces.svg";
 import { postData, selectCartItems } from "../../features/cartSlice";
@@ -115,6 +115,7 @@ const Checkout = () => {
           </section>
         </div>
         <div className="Checkout-inner">
+        <Link to="/menu"><button className="kdk">Назад</button></Link>
           <form onSubmit={handleSubmit}>
             <label htmlFor="name">Имя</label>
             <input

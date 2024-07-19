@@ -43,6 +43,8 @@
   }
   &-inner {
     display: flex;
+    flex-direction: column;
+    gap: 40px;
     justify-content: center;
     margin-top: 100px;
     & form {

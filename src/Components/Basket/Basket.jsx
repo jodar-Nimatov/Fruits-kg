@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import "./Basket.scss";
 import Logo from "../../assets/icons/logo.png";
 import BasketItem from "../BasketItem/BasketItem";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { addDelToCart, selectCartItems, selectCartStatus, selectCartTotalPrice } from "../../features/cartSlice";
 
@@ -41,6 +41,10 @@ const Basket = () => {
           </div>
         </div>
         <div className="Basket-inner">
+        <Link to="/menu"><button className="kdk">Назад</button></Link>
+        <br />
+        <br />
+        <br />
           <div className="Basket-inner-row">
             {items.map(item => (
               <BasketItem key={item.id} item={item} />
