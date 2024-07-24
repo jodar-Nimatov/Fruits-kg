@@ -3,10 +3,22 @@ import Header from "../Header/header";
 import { Link } from "react-router-dom";
 import Mainlogo from "../../assets/icons/mainlogo.svg";
 import "./main.scss";
+import { Helmet } from "react-helmet";
 
 const Index = () => {
   return (
     <>
+     <Helmet>
+        <title>Адик Маркет - Фрукты и Овощи</title>
+        <meta
+          name="description"
+          content="Адик Маркет - Насладитесь свежестью и вкусом наших фруктов и овощей, приготовленных с любовью и заботой о вашем здоровье!"
+        />
+        <meta
+          name="keywords"
+          content="Адик Маркет, фрукты, овощи, свежие фрукты, свежие овощи, здоровое питание"
+        />
+      </Helmet>
       <div className='main-back'>
         <div className="main-page">
           <div className="container">

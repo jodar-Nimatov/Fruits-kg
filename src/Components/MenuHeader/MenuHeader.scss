@@ -7,8 +7,10 @@
     &_above {
       color: black;
       & img {
-        width: 82px;
-        scale: 1.5;
+        width: 100px;   /* Максимальная ширина */
+        height: 100px;  /* Максимальная высота */
+         
+        transform: scale(1.5);
       }
     }
     &_bellow {
