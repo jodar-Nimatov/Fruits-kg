@@ -7,7 +7,7 @@ import { fetchProducts } from './productsSlice';
 export const fetchProductById = createAsyncThunk(
   'products/fetchProductById',
   async (productId) => {
-    const response = await fetch(`https://fruitstore.pp.ua/api/main/products/${productId}`);
+    const response = await fetch(`https://adikmarket.kg/api/main/products/${productId}`);
     const data = await response.json();
     return data;
   }
